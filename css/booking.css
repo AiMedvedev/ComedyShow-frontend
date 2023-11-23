@@ -1,0 +1,83 @@
+.booking {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #EBECF1;
+}
+
+.booking__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+.booking__title {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 50px;
+}
+
+.booking__fieldset_user-info {
+    margin-bottom: 50px;
+}
+
+.booking__legend {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.booking__input_group {
+    display: flex;
+    gap: 8px;
+}
+
+.booking__input {
+    display: block;
+    min-width: 380px;
+    height: 44px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border-color: transparent;
+}
+
+.booking__input::placeholder {
+    color: #BABABA;
+}
+
+.booking__fieldset_comedians {
+    margin-bottom: 122px;
+}
+
+.booking__comedians-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.booking__comedian {
+    display: flex;
+    align-items: center;
+}
+
+.booking__select {
+    height: 44px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border-color: transparent;
+}
+
+.booking__select_comedian {
+    margin-right: 8px;
+}
+
+.booking__select_time {
+    margin-right: 18px;
+}
+
+.booking__button {
+    padding: 16px 36px;
+    border-radius: 36px;
+    background: #FFC219;
+    color: #1a1a1a;
+}
