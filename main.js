@@ -91,7 +91,8 @@ const init = async () => {
 
     comedianList.append(comedianBlock);
 
-    const comediansNumber = document.querySelector(".event__info-item_number");
+    const comediansNumber = document.querySelector(".event__info-item_number-comedians");
+    console.log(comediansNumber);
     comediansNumber.textContent = comedians.length;
     comedianList.append(comedianBlock);
 }
