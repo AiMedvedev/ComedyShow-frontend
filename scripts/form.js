@@ -1,13 +1,18 @@
 import JustValidate from 'just-validate';
 import Inputmask from 'inputmask';
 import { Notification } from './notification.js';
+import { sendData } from './api.js';
 
 export const initForm = (
 bookingForm, 
 bookingInputFullname,
 bookingInputPhone,
-bookingInputTicket
+bookingInputTicket,
+changeSection,
+comedianList
 ) => {
+    
+
     const notification = Notification.getInstance();
     let notificationMessage = '';
     const validate = new JustValidate(bookingForm, {
@@ -62,10 +67,16 @@ bookingInputTicket
                 notificationMessage += `${element.errorMessage}, `;
             }
         }
+
+        notification.show(notificationMessage.slice(0, -2), false);
     });
 
-    bookingForm.addEventListener('submit', (e) => {
+    bookingForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        if (!validate.isValid) {
+            return;
+        }
 
         const data = {booking: []};
         const times = new Set();
@@ -84,10 +95,35 @@ bookingInputTicket
             } 
         });
 
+        if (data.booking.length == 0 && !notificationMessage) {
+            notificationMessage += "Выберите комика, "; 
+            notification.show(notificationMessage.slice(0, -2), false);
+        }
+        
         if (times.size !== data.booking.length) {
             notificationMessage += "Нельзя одновременно быть в двух местах!"; 
             notification.show(notificationMessage.slice(0, -2), false);
-            notificationMessage = '';
+        }
+
+        notificationMessage = '';
+        const method = bookingForm.getAttribute('method');
+        let isSent = false;
+
+        if (method === 'PATCH') {
+            isSent = await sendData(method, data, data.ticket);
+        }
+
+        if (method === 'POST') {
+            isSent = await sendData(method, data);
+        }
+
+        console.log(isSent);
+
+        if (isSent) {
+            Notification.getInstance().show('Бронь принята!', true);
+            changeSection();
+            bookingForm.reset();
+            comedianList.textContent = '';
         }
     });
 }

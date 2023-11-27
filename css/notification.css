@@ -3,7 +3,8 @@
     right: 50px;
     bottom: 50px;
     color: #fff;
-    font-size: 30px;
+    max-width: 60%;
+    font-size: 22px;
     font-weight: 800;
     line-height: 1.2;
     border-radius: 16px;
@@ -22,8 +23,25 @@
 .notification_success {
     padding-right: 76px;
     background: #00992B url('../img/check.svg') right 32px center / 36px no-repeat;
+
 }
 
 .notification_error {
-    background-color: #900;
+    background-color: rgb(196, 63, 63);
+}
+
+@media(max-width: 768px) {
+    .notification {
+        max-width: 50%;
+        border-radius: 12px;
+        margin-left: 16px;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 320px) { 
+    .notification {
+        max-width: 100%;
+        padding: 16px;
+    }
 }

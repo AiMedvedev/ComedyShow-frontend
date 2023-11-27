@@ -10,6 +10,16 @@
     background-position: center;
     color: white;
     padding: 80px 30px;
+    transition: opacity .5s, visibility .5s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.event__hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
 }
 
 .event__title {
@@ -38,6 +48,13 @@
 
 .event__button {
     font-size: 24px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.event__button_hidden {
+    visibility: hidden;
+    opacity: 0;
 }
 
 .event__button-reserve {
