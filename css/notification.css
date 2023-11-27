@@ -22,7 +22,6 @@
 .notification_success {
     padding-right: 76px;
     background: #00992B url('../img/check.svg') right 32px center / 36px no-repeat;
-
 }
 
 .notification_error {
