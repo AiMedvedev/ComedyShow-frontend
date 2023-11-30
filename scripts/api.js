@@ -14,8 +14,9 @@ export const getComedians = async () => {
 }
 
 export const sendData = async (method, data, id) => {
+    const thisId = id ? `/${id}` : "";
     try {
-        const response = await fetch(`http://localhost:8080/clients${id ? `/${id}` : ''}`, {
+        const response = await fetch(`http://localhost:8080/clients${thisId}`, {
             method,
             headers: {
                 "Content-Type": 'application/json'

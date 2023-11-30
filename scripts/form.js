@@ -11,8 +11,6 @@ bookingInputTicket,
 changeSection,
 comedianList
 ) => {
-    
-
     const notification = Notification.getInstance();
     let notificationMessage = '';
     const validate = new JustValidate(bookingForm, {
@@ -116,8 +114,6 @@ comedianList
         if (method === 'POST') {
             isSent = await sendData(method, data);
         }
-
-        console.log(isSent);
 
         if (isSent) {
             Notification.getInstance().show('Бронь принята!', true);
