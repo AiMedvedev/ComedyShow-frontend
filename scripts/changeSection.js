@@ -1,14 +1,23 @@
+import { createComedianBlock } from "./comediansBlock.js";
+
 export const initChangeSection = (
     eventSection, 
     bookingSection,
     reserveBtn,
     editBtn,
     boopkingTitle,
-    bookingForm
+    bookingForm,
+    comedians, 
+    comedianList
     ) => {
         const changeSection = () => {
             eventSection.classList.toggle('event__hidden');
             bookingSection.classList.toggle('booking__hidden');
+
+            if(!bookingSection.classList.contains('booking__hidden')) {
+                const comedianBlock = createComedianBlock(comedians, comedianList);
+                comedianList.append(comedianBlock);
+            };
         }
 
         reserveBtn.style.transition = "opacity .5s, visibility .5s";

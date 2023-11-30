@@ -25,10 +25,11 @@ const init = async () => {
 
     
     if (comedians) {
-        const comedianBlock = createComedianBlock(comedians, comedianList);
+        
 
         comediansNumber.textContent = comedians.length;
-        comedianList.append(comedianBlock);
+
+        
 
         const changeSection = initChangeSection(
             eventSection, 
@@ -36,7 +37,9 @@ const init = async () => {
             reserveBtn,
             editBtn,
             boopkingTitle,
-            bookingForm
+            bookingForm,
+            comedians, 
+            comedianList
         );
         
         initForm(

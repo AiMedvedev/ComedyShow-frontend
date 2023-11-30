@@ -96,11 +96,13 @@ comedianList
         if (data.booking.length == 0 && !notificationMessage) {
             notificationMessage += "Выберите комика, "; 
             notification.show(notificationMessage.slice(0, -2), false);
+            return;
         }
         
         if (times.size !== data.booking.length) {
             notificationMessage += "Нельзя одновременно быть в двух местах!"; 
             notification.show(notificationMessage.slice(0, -2), false);
+            return;
         }
 
         notificationMessage = '';
