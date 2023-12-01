@@ -5,6 +5,7 @@
 пройти по ссылке https://comedy-show.vercel.app/
 
 Ссылка на API для бэкенда этого приложения - https://github.com/AiMedvedev/ComedyShowAPI.git
+
 Бэкенд загружен на glitch.com
 
 ## Использованы технологии
