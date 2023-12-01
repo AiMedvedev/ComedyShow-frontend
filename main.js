@@ -2,12 +2,11 @@ import './style.css'
 
 import { getComedians } from './scripts/api.js';
 import { initForm } from './scripts/form.js';
-import { createComedianBlock } from './scripts/comediansBlock.js';
 import { initChangeSection } from './scripts/changeSection.js';
+import { initQrPage } from './scripts/qrPage.js';
 
 const comedianList = document.querySelector('.booking__comedians-list');
 const bookingForm = document.querySelector('.booking__form');
-
 
 const init = async () => {
     const comedians = await getComedians();
@@ -23,13 +22,13 @@ const init = async () => {
     const editBtn = document.querySelector('.event__button-edit');
     const boopkingTitle = document.querySelector('.booking__title');
 
-    
+    if (window.location.pathname.endsWith('qr.html')) {
+        initQrPage();
+        return;
+    }
+
     if (comedians) {
-        
-
         comediansNumber.textContent = comedians.length;
-
-        
 
         const changeSection = initChangeSection(
             eventSection, 
@@ -50,7 +49,6 @@ const init = async () => {
             changeSection,
             comedianList
         );
-    
     }
 }
 

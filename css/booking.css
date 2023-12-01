@@ -139,6 +139,23 @@
     color: #1a1a1a;
 }
 
+.booking__client-info,
+.booking__list  {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.booking__title-qr {
+    font-size: 34px;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+}
+
+.booking__client-item {
+    margin: 0;
+}
+
 
 @media (max-width: 1024px) {
     .booking__container {
